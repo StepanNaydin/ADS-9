@@ -11,7 +11,7 @@ class tree_elem {
     int count = 1;
     tree_elem* m_left;
     tree_elem* m_right;
-    tree_elem(std::string val) {
+    explicit tree_elem(std::string val) {
         m_left = NULL;
         m_right = NULL;
         m_data = val;
@@ -25,7 +25,7 @@ class binary_tree {
     void print_tree(tree_elem*);
 
  public:
-    binary_tree(std::string);
+    explicit binary_tree(std::string);
     void print();
     int find(std::string);
     void insert(std::string);
@@ -38,7 +38,7 @@ binary_tree::binary_tree(std::string key) {
 int binary_tree::find(std::string key) {
     tree_elem* curr = m_root;
     while (curr && curr->m_data != key) {
-        if (curr->m_data > key){
+        if (curr->m_data > key) {
             curr = curr->m_left;
         } else {
             curr = curr->m_right;
