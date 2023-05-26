@@ -5,8 +5,8 @@
 #include  <cstdlib>
 #include  "bst.h"
 
-BST<std::string> makeTree(const char* filename) {
-   std::ifstream file(filename);               // открываем файл на чтение
+binary_tree makeTree(const char* filename) {
+    std::ifstream file(filename);               // открываем файл на чтение
 
     if (!file) {                                // если файл не открылся, прекращаем работу
         std::cout << "File error!" << std::endl;
@@ -28,8 +28,7 @@ BST<std::string> makeTree(const char* filename) {
     binary_tree tree(word);
     word = "";
 
-    while (!file.eof())                         // читаем содержимое файла посимвольно
-    {
+    while (!file.eof()) {
         char ch = file.get();
         if (!isalpha(ch) && ch != ' ') {
             ch = ' ';
