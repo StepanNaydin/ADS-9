@@ -14,7 +14,7 @@ binary_tree makeTree(const char* filename) {
         return tree;
     }
 
-    string word = "";
+    std::string word = "";
 
     while (true) {
         char ch = file.get();
