@@ -5,12 +5,12 @@
 #include  <cstdlib>
 #include  "bst.h"
 
-binary_tree makeTree(const char* filename) {
+BST<std::string> makeTree(const char* filename) {
     std::ifstream file(filename);               // открываем файл на чтение
 
     if (!file) {                                // если файл не открылся, прекращаем работу
         std::cout << "File error!" << std::endl;
-        binary_tree tree("error");
+        BST<std::string> tree("error");
         return tree;
     }
 
@@ -25,7 +25,7 @@ binary_tree makeTree(const char* filename) {
         }
     }
 
-    binary_tree tree(word);
+    BST<std::string> tree(word);
     word = "";
 
     while (!file.eof()) {
