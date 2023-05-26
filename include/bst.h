@@ -28,7 +28,7 @@ class BST {
         m_root = new tree_elem(key);
         m_size = 1;
     }
-    int find(T key) {
+    int search(T key) {
         tree_elem* curr = m_root;
         while (curr && curr->m_data != key) {
             if (curr->m_data > key) {
@@ -61,6 +61,15 @@ class BST {
         if (curr->m_data == key) {
             curr->count++;
         }
+    }
+    int depth() {
+        return depth_qwe(m_root) - 1;
+    }
+    int depth_qwe(tree_elem* m_root) {
+        if (m_root == nullptr) {
+            return 0;
+        }
+        return 1 + std::max(depth_qwe(m_root->m_left), depth_qwe(m_root->m_right));
     }
 };
 
